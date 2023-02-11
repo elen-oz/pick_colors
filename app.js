@@ -45,7 +45,7 @@ function setRandomColors() {
     const color = chroma.random();
 
     if (isLocked) {
-      colors.push(text.textContent)
+      colors.push(text.textContent);
       return;
     }
 
@@ -66,8 +66,10 @@ function setTextColor(text, color) {
   text.style.color = luminance > 0.5 ? 'black' : 'white';
 }
 
-function updateColorsHash(colors =[]) {
-  document.location.hash = colors.toString();
+function updateColorsHash(colors = []) {
+  document.location.hash = colors
+    .map((col) => col.toString().substring(1))
+    .join('-');
 }
 
 setRandomColors();
