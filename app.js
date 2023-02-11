@@ -72,4 +72,14 @@ function updateColorsHash(colors = []) {
     .join('-');
 }
 
-setRandomColors();
+function getColorsFronHash() {
+  if (document.location.hash.length > 1) {
+    return document.location.hash
+      .substring(1)
+      .split('-')
+      .map((color) => '#' + color);
+  }
+  return [];
+}
+
+setRandomColors(true);
